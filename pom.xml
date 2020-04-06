@@ -43,6 +43,11 @@
         <version>${org.projectlombok.version}</version>
     </dependency>
     <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <scope>runtime</scope>
+    </dependency>
+    <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
         <scope>test</scope>
@@ -94,7 +99,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source> <!-- or higher, depending on your project -->
                     <target>${java.version}</target> <!-- or higher, depending on your project -->
