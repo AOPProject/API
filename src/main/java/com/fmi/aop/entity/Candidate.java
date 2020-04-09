@@ -29,9 +29,6 @@ public class Candidate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(mappedBy = "candidate", cascade = CascadeType.REMOVE)
-    private Set<Interview> interviews;
-
     @Column(nullable = false)
     private String firstName;
 
@@ -43,4 +40,8 @@ public class Candidate {
 
     @Column(nullable = false)
     private String phone;
+
+    @OneToMany(mappedBy = "candidate", cascade = CascadeType.REMOVE)
+    private Set<Interview> interviews;
+
 }

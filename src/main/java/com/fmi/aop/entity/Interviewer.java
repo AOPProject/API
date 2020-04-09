@@ -29,9 +29,6 @@ public class Interviewer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(mappedBy = "interviewer", cascade = CascadeType.REMOVE)
-    private Set<Interview> interviews;
-
     @Column(nullable = false)
     private String firstName;
 
@@ -45,5 +42,8 @@ public class Interviewer {
     private String activationCode;
     private String password;
     private Boolean isActive;
+
+    @OneToMany(mappedBy = "interviewer", cascade = CascadeType.REMOVE)
+    private Set<Interview> interviews;
 
 }

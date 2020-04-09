@@ -1,6 +1,5 @@
 package com.fmi.aop.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
 
 @Entity
@@ -28,14 +26,6 @@ public class Interview {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne( fetch = FetchType.LAZY)
-    @JoinColumn(name = "candidate_id", nullable = false)
-    private Candidate candidate;
-
-    @ManyToOne( fetch = FetchType.LAZY)
-    @JoinColumn(name = "interviewer_id", nullable = false)
-    private Interviewer interviewer;
-
     @Column(nullable = false)
     private String reservedRoom;
 
@@ -47,5 +37,11 @@ public class Interview {
 
     private Integer score;
 
+    @ManyToOne( fetch = FetchType.LAZY)
+    @JoinColumn(name = "candidate_id", nullable = false)
+    private Candidate candidate;
 
+    @ManyToOne( fetch = FetchType.LAZY)
+    @JoinColumn(name = "interviewer_id", nullable = false)
+    private Interviewer interviewer;
 }

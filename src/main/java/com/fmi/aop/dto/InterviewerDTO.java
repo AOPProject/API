@@ -12,21 +12,23 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CandidateDTO {
+public class InterviewerDTO {
 
     private Integer id;
 
-    @NotEmpty(message = "Candidate must have a first name specified!")
+    @NotEmpty(message = "Interviewer must have a first name specified!")
     private String firstName;
 
-    @NotEmpty(message = "Candidate must have a last name specified!")
+    @NotEmpty(message = "Interviewer must have a last name specified!")
     private String lastName;
 
-    @NotEmpty(message = "Candidate must have an email specified!")
+    @NotEmpty(message = "Interviewer must have an email specified!")
     private String email;
 
-    @NotEmpty(message = "Candidate must have a phone specified!")
-    private String phone;
+    private String department;
+    private String activationCode;
+    private String password;
+    private Boolean isActive;
 
     private Set<InterviewDTO> interviews;
 }
