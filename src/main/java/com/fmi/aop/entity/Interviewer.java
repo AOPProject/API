@@ -4,7 +4,9 @@ package com.fmi.aop.entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,6 +24,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString(exclude = {"interviews"})
+@EqualsAndHashCode(exclude = {"interviews"})
 @Table(uniqueConstraints={@UniqueConstraint(columnNames={"email"})})
 public class Interviewer {
 
