@@ -20,7 +20,7 @@ public class CandidateController {
     private final ICandidateService candidateService;
 
     @GetMapping
-    public Set<CandidateDTO> getAllCandidate(){
+    public Set<CandidateDTO> getAllCandidates(){
         return candidateService.getAllCandidates();
     }
 
