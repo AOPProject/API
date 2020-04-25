@@ -26,7 +26,7 @@ import java.util.Set;
 @Builder
 @ToString(exclude = {"interviews"})
 @EqualsAndHashCode(exclude = {"interviews"})
-@Table(uniqueConstraints={@UniqueConstraint(columnNames={"email"})})
+@Table(uniqueConstraints={@UniqueConstraint(columnNames = "email")})
 public class Interviewer {
 
     @Id
@@ -42,10 +42,10 @@ public class Interviewer {
     @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false, columnDefinition="tinyint(1) default 0")
+    private boolean enabled;
     private String department;
-    private String activationCode;
     private String password;
-    private Boolean isActive;
 
     @OneToMany(mappedBy = "interviewer", cascade = CascadeType.REMOVE)
     private Set<Interview> interviews;

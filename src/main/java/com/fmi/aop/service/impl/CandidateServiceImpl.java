@@ -25,7 +25,7 @@ public class CandidateServiceImpl implements ICandidateService {
 
     @Override
     public Set<CandidateDTO> getAllCandidates() {
-        return candidateRepository.findAll().stream()
+        return candidateRepository.findAllByOrderById().stream()
                 .map(this::toCandidateDTO)
                 .collect(Collectors.toSet());
     }

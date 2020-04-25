@@ -34,6 +34,4 @@ public class CandidateController {
         return candidateService.getCandidateByEmail(email);
     }
 
-
-
 }

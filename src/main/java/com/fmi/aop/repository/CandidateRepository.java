@@ -9,7 +9,8 @@ import java.util.Optional;
 
 @Repository
 public interface CandidateRepository extends JpaRepository<Candidate, Integer> {
+
     Optional<Candidate> findById(Integer candidateId);
-    List<Candidate> findAll();
+    List<Candidate> findAllByOrderById();
     Optional<Candidate> findCandidateByEmail(String email);
 }

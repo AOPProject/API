@@ -8,5 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface InterviewerRepository extends JpaRepository<Interviewer, Integer> {
+
     Optional<Interviewer> findById(Integer interviewerId);
+    Optional<Interviewer> findInterviewerByEmail(String email);
 }

@@ -23,7 +23,7 @@ public class ServiceExceptionAdvice {
     }
 
 
-    @AfterThrowing(value="execution(* com.fmi.aop.service.impl.CandidateServiceImpl.*(..))",throwing="exception")
+    @AfterThrowing(value="execution(* com.fmi.aop.service.impl.*.*(..))",throwing="exception")
     public void afterThrowingAdvice(JoinPoint joinPoint,Exception exception){
         String methodName = joinPoint.getSignature().getName();
         String className = joinPoint.getTarget().getClass().toString();

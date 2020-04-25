@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Data
@@ -27,10 +28,10 @@ public class InterviewerDTO {
     @NotEmpty(message = "Interviewer must have an email specified!")
     private String email;
 
+    private boolean enabled;
     private String department;
-    private String activationCode;
+    @Size(max = 60, message = "Password can't be more than 60 characters long!")
     private String password;
-    private Boolean isActive;
 
     private Set<InterviewDTO> interviews;
 }
