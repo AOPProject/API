@@ -17,7 +17,8 @@ public class LoggingAdvice {
 
     private final Logger log = LoggerFactory.getLogger(LoggingAdvice.class);
 
-    @Pointcut(value="execution(* com.fmi.aop.*.*.*(..) )")
+    @Pointcut(value="execution(* com.fmi.aop.*.*.*())" +
+            " && !execution(* org.springframework.web.filter.GenericFilterBean.*())")
     public void myPointcut() {}
 
     @Around("myPointcut()")
