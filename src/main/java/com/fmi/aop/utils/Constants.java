@@ -20,4 +20,6 @@ public class Constants {
     public static final String TOKEN_EXPIRED = "Specified token is expired!";
     public static final String TOKEN_VALID = "Specified token related account has been validated!";
 
+
+
 }
