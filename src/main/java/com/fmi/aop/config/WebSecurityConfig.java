@@ -56,9 +56,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.cors()
                 .and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate", "/register","/registerConfirmation").permitAll()
                 .antMatchers("/interviewer/**").permitAll()
-                .anyRequest().authenticated().and().
+                .and().
                 exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
@@ -76,8 +75,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return source;
     }
 
-//    @Bean
-//    public ZuulPreFilter zuulPreFilter() {
-//        return new ZuulPreFilter();
-//    }
 }

@@ -2,7 +2,6 @@ package com.fmi.aop.service.impl;
 
 import com.fmi.aop.entity.Interviewer;
 import com.fmi.aop.repository.InterviewerRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,10 +17,10 @@ import static java.util.Collections.emptyList;
 
 
 @Service
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class JwtUserDetailsService implements UserDetailsService {
 
-    private final InterviewerRepository interviewerRepository;
+    @Autowired
+    private InterviewerRepository interviewerRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email){

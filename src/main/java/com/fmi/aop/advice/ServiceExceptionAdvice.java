@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ServiceExceptionAdvice {
 
-    private final Logger log = LoggerFactory.getLogger(ServiceExceptionAdvice.class);
+    private Logger log = LoggerFactory.getLogger(ServiceExceptionAdvice.class);
 
     @AfterReturning(value="execution(* com.fmi.aop.service.impl.CandidateServiceImpl.*(..))",
             returning="candidateDTO")
@@ -23,7 +23,9 @@ public class ServiceExceptionAdvice {
     }
 
 
-    @AfterThrowing(value="execution(* com.fmi.aop.service.impl.*.*(..))",throwing="exception")
+    @AfterThrowing(value="execution(* com.fmi.aop.service.impl.*.*(..))" +
+            " && !within(com.fmi.aop.service.impl.JwtUserDetailsService)",
+            throwing="exception")
     public void afterThrowingAdvice(JoinPoint joinPoint,Exception exception){
         String methodName = joinPoint.getSignature().getName();
         String className = joinPoint.getTarget().getClass().toString();

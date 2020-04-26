@@ -13,7 +13,6 @@ import com.fmi.aop.service.IInterviewerService;
 import com.fmi.aop.service.impl.JwtUserDetailsService;
 import com.fmi.aop.utils.JwtTokenUtil;
 import com.fmi.aop.utils.Token;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
@@ -23,6 +22,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,15 +39,21 @@ import static com.fmi.aop.utils.Constants.TOKEN_INVALID;
 import static com.fmi.aop.utils.Constants.TOKEN_VALID;
 
 @RestController
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@CrossOrigin
 public class JwtAuthenticationController {
 
-    private final IInterviewerService service;
-    private final InterviewerMapper mapper;
-    private final ApplicationEventPublisher eventPublisher;
-    private final AuthenticationManager authenticationManager;
-    private final JwtTokenUtil jwtTokenUtil;
-    private final JwtUserDetailsService userDetailsService;
+    @Autowired
+    private IInterviewerService service;
+    @Autowired
+    private InterviewerMapper mapper;
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
+    @Autowired
+    private AuthenticationManager authenticationManager;
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+    @Autowired
+    private JwtUserDetailsService userDetailsService;
 
 
     @PostMapping("/register")
