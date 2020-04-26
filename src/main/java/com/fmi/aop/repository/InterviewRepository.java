@@ -14,7 +14,7 @@ public interface InterviewRepository extends JpaRepository<Interview, Integer> {
     @Query("FROM Interview i where i.candidate.email = :email")
     Set<Interview> findInterviewByCandidateEmail(String email);
 
-    @Query("From Interview i where i.date = :date")
-    Set<Interview> findAllByDate(LocalDateTime date);
+//    @Query("From Interview i where i.date = :date")
+    Set<Interview> findAllByDateIsBetween(LocalDateTime startDate, LocalDateTime enDate);
 
 }

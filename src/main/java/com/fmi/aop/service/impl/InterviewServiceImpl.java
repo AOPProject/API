@@ -30,7 +30,7 @@ public class InterviewServiceImpl  implements IInterviewService {
 
     @Override
     public Set<InterviewDTO> getInterviewByDate(LocalDateTime date) {
-        return interviewRepository.findAllByDate(date).stream()
+        return interviewRepository.findAllByDateIsBetween(date, date.plusDays(1)).stream()
                 .map(this::toInterviewDTO).collect(Collectors.toSet());
     }
 
