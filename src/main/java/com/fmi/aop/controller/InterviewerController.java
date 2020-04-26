@@ -80,7 +80,6 @@ public class InterviewerController {
 
 
 
-
     private String getAppUrl(HttpServletRequest request) {
         return "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
     }
