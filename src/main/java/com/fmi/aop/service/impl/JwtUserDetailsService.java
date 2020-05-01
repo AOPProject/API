@@ -27,9 +27,6 @@ public class JwtUserDetailsService implements UserDetailsService {
         Interviewer interviewer = interviewerRepository.findInterviewerByEmail(email)
                 .orElseThrow(() -> new InvalidParameterException(
                 String.format(INVALID_PARAMETER_EXCEPTION, CANDIDATE_EMAIL, email)));
-        if (interviewer == null) {
-            throw new UsernameNotFoundException(email);
-        }
         return new User(interviewer.getEmail(), interviewer.getPassword(), emptyList());
     }
 }
