@@ -21,7 +21,7 @@ public class InterviewerController {
     private final InterviewerMapper mapper;
 
     @GetMapping("/{email}")
-    public InterviewerDTO getInterviewerById(@PathVariable String email){
+    public InterviewerDTO getInterviewerByEmail(@PathVariable String email){
         return service.getInterviewerByEmail(email);
     }
 

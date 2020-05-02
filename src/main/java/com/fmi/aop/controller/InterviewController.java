@@ -1,13 +1,11 @@
 package com.fmi.aop.controller;
 
+import com.fmi.aop.dto.ChangeInterviewScoreDto;
 import com.fmi.aop.dto.InterviewDTO;
 import com.fmi.aop.service.IInterviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -31,7 +29,6 @@ public class InterviewController {
     public Set<InterviewDTO> getInterviewsByDate(@RequestParam("date") String date){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime dateTime = LocalDate.parse(date, formatter).atStartOfDay();
-        System.out.println(dateTime);
 
         return interviewService.getInterviewByDate(dateTime);
     }
@@ -39,6 +36,11 @@ public class InterviewController {
     @GetMapping
     public Set<InterviewDTO> getInterviews(){
         return interviewService.getInterviews();
+    }
+
+    @PutMapping
+    public void changeInterviewScore(@RequestBody ChangeInterviewScoreDto changeInterviewScore) {
+        interviewService.updateInterviewScore(changeInterviewScore);
     }
 
 }
