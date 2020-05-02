@@ -46,10 +46,11 @@ public class InterviewServiceImpl  implements IInterviewService {
 
     @Override
     public void updateInterviewScore(ChangeInterviewScoreDto changeInterviewScore) {
-        Interview interview = interviewRepository.findById(changeInterviewScore.getId()).orElseThrow(() -> new InvalidParameterException(
+        Interview interviewToUpdate = interviewRepository.findById(changeInterviewScore.getId()).orElseThrow(() -> new InvalidParameterException(
                 String.format(INVALID_PARAMETER_EXCEPTION, INTERVIEW_ID, changeInterviewScore.getId())));
 
-        interview.setScore(changeInterviewScore.getScore());
+        interviewToUpdate.setScore(changeInterviewScore.getScore());
+        interviewRepository.save(interviewToUpdate);
     }
 
     private InterviewDTO toInterviewDTO(Interview interview){
