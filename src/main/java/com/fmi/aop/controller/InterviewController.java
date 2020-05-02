@@ -29,7 +29,6 @@ public class InterviewController {
     public Set<InterviewDTO> getInterviewsByDate(@RequestParam("date") String date){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime dateTime = LocalDate.parse(date, formatter).atStartOfDay();
-        System.out.println(dateTime);
 
         return interviewService.getInterviewByDate(dateTime);
     }
