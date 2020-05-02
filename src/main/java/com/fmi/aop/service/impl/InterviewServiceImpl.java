@@ -1,6 +1,7 @@
 package com.fmi.aop.service.impl;
 
 
+import com.fmi.aop.dto.ChangeInterviewScoreDto;
 import com.fmi.aop.dto.InterviewDTO;
 import com.fmi.aop.entity.Interview;
 import com.fmi.aop.mapper.InterviewMapper;
@@ -38,6 +39,12 @@ public class InterviewServiceImpl  implements IInterviewService {
     public Set<InterviewDTO> getInterviews() {
         return interviewRepository.findAll().stream()
                 .map(this::toInterviewDTO).collect(Collectors.toSet());
+    }
+
+    @Override
+    public void updateInterviewScore(ChangeInterviewScoreDto changeInterviewScore) {
+        Interview interview = interviewRepository.getOne(changeInterviewScore.getId());
+        interview.setScore(changeInterviewScore.getScore());
     }
 
     private InterviewDTO toInterviewDTO(Interview interview){

@@ -16,5 +16,4 @@ public interface InterviewRepository extends JpaRepository<Interview, Integer> {
 
 //    @Query("From Interview i where i.date = :date")
     Set<Interview> findAllByDateIsBetween(LocalDateTime startDate, LocalDateTime enDate);
-
 }
