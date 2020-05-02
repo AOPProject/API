@@ -14,6 +14,7 @@ public class Constants {
     public static final String CANDIDATE_ID = "Candidate id";
     public static final String CANDIDATE_EMAIL = "Candidate email";
     public static final String INTERVIEWER_EMAIL = "Interviewer email";
+    public static final String INTERVIEW_ID = "Interview email";
 
     //Registration token status
     public static final String TOKEN_INVALID = "Specified token is invalid!";

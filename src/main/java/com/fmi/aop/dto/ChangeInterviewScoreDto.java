@@ -8,6 +8,6 @@ import lombok.*;
 @Builder
 @EqualsAndHashCode
 public class ChangeInterviewScoreDto {
-    int id;
-    int score;
+    Integer id;
+    Integer score;
 }

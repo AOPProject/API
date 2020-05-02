@@ -11,9 +11,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.InvalidParameterException;
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static com.fmi.aop.utils.Constants.*;
 
 
 @Service
@@ -43,7 +46,9 @@ public class InterviewServiceImpl  implements IInterviewService {
 
     @Override
     public void updateInterviewScore(ChangeInterviewScoreDto changeInterviewScore) {
-        Interview interview = interviewRepository.getOne(changeInterviewScore.getId());
+        Interview interview = interviewRepository.findById(changeInterviewScore.getId()).orElseThrow(() -> new InvalidParameterException(
+                String.format(INVALID_PARAMETER_EXCEPTION, INTERVIEW_ID, changeInterviewScore.getId())));
+
         interview.setScore(changeInterviewScore.getScore());
     }
 
