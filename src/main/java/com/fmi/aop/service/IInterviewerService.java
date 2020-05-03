@@ -1,5 +1,6 @@
 package com.fmi.aop.service;
 
+import com.fmi.aop.dto.InterviewDTO;
 import com.fmi.aop.dto.InterviewerDTO;
 import com.fmi.aop.dto.RegistrationDTO;
 import com.fmi.aop.entity.Interviewer;
@@ -15,4 +16,6 @@ public interface IInterviewerService {
     Token validateVerificationToken(String token);
 
     InterviewerDTO registerInterviewer(RegistrationDTO registrationDTO);
+
+    InterviewerDTO getInterviewerById(Integer id);
 }

@@ -1,5 +1,7 @@
 package com.fmi.aop.controller;
 
+import com.fmi.aop.dto.CandidateDTO;
+import com.fmi.aop.dto.InterviewDTO;
 import com.fmi.aop.dto.InterviewerDTO;
 import com.fmi.aop.entity.Interviewer;
 import com.fmi.aop.mapper.InterviewerMapper;
@@ -18,10 +20,16 @@ public class InterviewerController {
 
     private final InterviewerMapper mapper;
 
-    @GetMapping("/{email}")
+    @GetMapping("/email")
     @ResponseStatus(HttpStatus.OK)
-    public InterviewerDTO getInterviewerByEmail(@PathVariable String email){
+    public InterviewerDTO getInterviewerByEmail(@RequestParam("email") String email){
         return service.getInterviewerByEmail(email);
+    }
+
+    @GetMapping("getInterviewer/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public InterviewerDTO getInterviewerById(@PathVariable Integer id){
+        return service.getInterviewerById(id);
     }
 
     private Interviewer toInterviewer(InterviewerDTO interviewerDTO){
