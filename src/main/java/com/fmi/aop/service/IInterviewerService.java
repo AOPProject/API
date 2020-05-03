@@ -15,4 +15,6 @@ public interface IInterviewerService {
     Token validateVerificationToken(String token);
 
     InterviewerDTO registerInterviewer(RegistrationDTO registrationDTO);
+
+    InterviewerDTO getInterviewerById(Integer id);
 }

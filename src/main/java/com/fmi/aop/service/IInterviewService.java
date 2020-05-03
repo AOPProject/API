@@ -1,6 +1,5 @@
 package com.fmi.aop.service;
 
-import com.fmi.aop.dto.ChangeInterviewScoreDto;
 import com.fmi.aop.dto.InterviewDTO;
 
 import java.time.LocalDateTime;
@@ -13,6 +12,4 @@ public interface IInterviewService {
     Set<InterviewDTO> getInterviewByDate(LocalDateTime date);
 
     Set<InterviewDTO> getInterviews();
-
-    void updateInterviewScore(ChangeInterviewScoreDto changeInterviewScore);
 }
