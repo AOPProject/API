@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class LoggingAdvice {
+public class PerformanceLoggingAspect {
 
-    private final Logger log = LoggerFactory.getLogger(LoggingAdvice.class);
+    private final Logger log = LoggerFactory.getLogger(PerformanceLoggingAspect.class);
 
     @Pointcut(value="execution(* com.fmi.aop.*.*.*())" +
             " && !execution(* org.springframework.web.filter.GenericFilterBean.*())")

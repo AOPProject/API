@@ -12,6 +12,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/candidate")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@CrossOrigin
 public class CandidateController {
 
     private final ICandidateService candidateService;

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/interviewer")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@CrossOrigin
 public class InterviewerController {
 
     private final IInterviewerService service;

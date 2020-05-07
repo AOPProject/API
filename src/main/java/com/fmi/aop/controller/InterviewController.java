@@ -17,6 +17,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/interview")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@CrossOrigin
 public class InterviewController {
 
     private final IInterviewService interviewService;

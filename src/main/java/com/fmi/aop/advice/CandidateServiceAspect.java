@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class ServiceExceptionAdvice {
+public class CandidateServiceAspect {
 
-    private Logger log = LoggerFactory.getLogger(ServiceExceptionAdvice.class);
+    private Logger log = LoggerFactory.getLogger(CandidateServiceAspect.class);
 
     @AfterReturning(value="execution(* com.fmi.aop.service.impl.CandidateServiceImpl.*(..))",
             returning="candidateDTO")
