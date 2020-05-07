@@ -1,4 +1,4 @@
-package com.fmi.aop.registration;
+package com.fmi.aop.event;
 
 
 import com.fmi.aop.entity.Interviewer;
@@ -19,8 +19,6 @@ public class OnRegistrationCompleteEvent extends ApplicationEvent {
         this.locale = locale;
         this.appUrl = appUrl;
     }
-
-    //
 
     public String getAppUrl() {
         return appUrl;

@@ -42,7 +42,7 @@ public class InterviewController {
         return interviewService.getInterviews();
     }
 
-    @PutMapping
+    @PatchMapping
     @ResponseStatus(HttpStatus.OK)
     public void changeInterviewScore(@RequestBody ChangeInterviewScoreDto changeInterviewScore) {
         interviewService.updateInterviewScore(changeInterviewScore);

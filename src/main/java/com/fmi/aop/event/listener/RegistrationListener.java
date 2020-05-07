@@ -1,8 +1,8 @@
-package com.fmi.aop.registration.listener;
+package com.fmi.aop.event.listener;
 
 
 import com.fmi.aop.entity.Interviewer;
-import com.fmi.aop.registration.OnRegistrationCompleteEvent;
+import com.fmi.aop.event.OnRegistrationCompleteEvent;
 import com.fmi.aop.service.IInterviewerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +22,6 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
     private final IInterviewerService service;
     private final JavaMailSender mailSender;
     private final Environment env;
-
-    // API
 
     @Override
     public void onApplicationEvent(final OnRegistrationCompleteEvent event) {

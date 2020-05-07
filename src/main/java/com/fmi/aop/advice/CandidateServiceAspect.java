@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class ServiceExceptionAdvice {
+public class CandidateServiceAspect {
 
-    private Logger log = LoggerFactory.getLogger(ServiceExceptionAdvice.class);
+    private Logger log = LoggerFactory.getLogger(CandidateServiceAspect.class);
 
     @AfterReturning(value="execution(* com.fmi.aop.service.impl.CandidateServiceImpl.*(..))",
             returning="candidateDTO")
@@ -23,7 +23,7 @@ public class ServiceExceptionAdvice {
     }
 
 
-    @AfterThrowing(value="execution(* com.fmi.aop.service.impl.*.*(..))" +
+    @AfterThrowing(value="execution(* com.fmi.aop.service.impl.CandidateServiceImpl.*(..))" +
             " && !within(com.fmi.aop.service.impl.JwtUserDetailsService)",
             throwing="exception")
     public void afterThrowingAdvice(JoinPoint joinPoint,Exception exception){

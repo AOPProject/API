@@ -13,16 +13,16 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class LoggingAdvice {
+public class PerformanceLoggingAspect {
 
-    private final Logger log = LoggerFactory.getLogger(LoggingAdvice.class);
+    private final Logger log = LoggerFactory.getLogger(PerformanceLoggingAspect.class);
 
     @Pointcut(value="execution(* com.fmi.aop.*.*.*())" +
             " && !execution(* org.springframework.web.filter.GenericFilterBean.*())")
     public void myPointcut() {}
 
     @Around("myPointcut()")
-    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         Object object = joinPoint.proceed();
         long endTime = System.currentTimeMillis();
@@ -31,7 +31,7 @@ public class LoggingAdvice {
     }
 
     @Before("myPointcut()")
-    public void before(JoinPoint joinPoint) {
+    public void beforeAdvice(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         String className = joinPoint.getTarget().getClass().toString();
         Object[] array = joinPoint.getArgs();
@@ -42,7 +42,7 @@ public class LoggingAdvice {
     }
 
     @After("myPointcut()")
-    public void after(JoinPoint joinPoint){
+    public void afterAdvice(JoinPoint joinPoint){
         String methodName = joinPoint.getSignature().getName();
         String className = joinPoint.getTarget().getClass().toString();
         log.info("Returning from method {} of class {}", methodName, className);

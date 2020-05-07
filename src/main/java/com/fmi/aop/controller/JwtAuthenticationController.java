@@ -8,7 +8,7 @@ import com.fmi.aop.entity.JwtRequest;
 import com.fmi.aop.entity.JwtResponse;
 import com.fmi.aop.exception.AccountAlreadyEnabledException;
 import com.fmi.aop.mapper.InterviewerMapper;
-import com.fmi.aop.registration.OnRegistrationCompleteEvent;
+import com.fmi.aop.event.OnRegistrationCompleteEvent;
 import com.fmi.aop.service.IInterviewerService;
 import com.fmi.aop.service.impl.JwtUserDetailsService;
 import com.fmi.aop.utils.JwtTokenUtil;

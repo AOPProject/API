@@ -1,7 +1,6 @@
 package com.fmi.aop.service.impl;
 
 
-import com.fmi.aop.dto.InterviewDTO;
 import com.fmi.aop.dto.InterviewerDTO;
 import com.fmi.aop.dto.RegistrationDTO;
 import com.fmi.aop.entity.Interviewer;
@@ -20,7 +19,9 @@ import java.security.InvalidParameterException;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import static com.fmi.aop.utils.Constants.*;
+import static com.fmi.aop.utils.Constants.INTERVIEWER_EMAIL;
+import static com.fmi.aop.utils.Constants.INTERVIEWER_ID;
+import static com.fmi.aop.utils.Constants.INVALID_PARAMETER_EXCEPTION;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -101,9 +102,6 @@ public class InterviewerServiceImpl implements IInterviewerService {
         return interviewerMapper.convertInterviewerToInterviewerDTO(interviewer);
     }
 
-    public void changeInterviewerPassword(final Interviewer interviewer, final String password) {
-        interviewer.setPassword(passwordEncoder.encode(password));
-        interviewerRepository.save(interviewer);
-    }
+
 
 }
