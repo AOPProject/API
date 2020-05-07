@@ -15,6 +15,8 @@ WHERE NOT EXISTS( SELECT email FROM candidate WHERE email = 'alexandraivan97@gma
 -- Insert mock Interviewer
 INSERT INTO interviewer(first_name, last_name, email, department) SELECT 'Gabi', 'Trocan','gabrieltrocan93@gmail.com', 'it'
 WHERE NOT EXISTS( SELECT email FROM candidate WHERE email = 'gabrieltrocan93@gmail.com');
+INSERT INTO interviewer(department, email, first_name, last_name) SELECT 'it','alexiialin96@gmail.com','Alin','Alexii'
+WHERE NOT EXISTS( SELECT email FROM candidate WHERE email = 'alexiialin96@gmail.com');
 
 
 -- Insert mock Interview
