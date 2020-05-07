@@ -10,11 +10,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.InvalidParameterException;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.fmi.aop.utils.Constants.*;
+import static com.fmi.aop.utils.Constants.CANDIDATE_EMAIL;
+import static com.fmi.aop.utils.Constants.CANDIDATE_ID;
+import static com.fmi.aop.utils.Constants.INVALID_PARAMETER_EXCEPTION;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -31,7 +34,7 @@ public class CandidateServiceImpl implements ICandidateService {
     }
 
     @Override
-    public CandidateDTO getCandidateByEmail(String email) {
+    public CandidateDTO getCandidateByEmail(String email, HttpServletRequest request) {
         return candidateRepository.findCandidateByEmail(email)
                 .map(this::toCandidateDTO)
                 .orElseThrow(() -> new InvalidParameterException(
